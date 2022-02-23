@@ -27,6 +27,9 @@ resource "aws_launch_template" "foobar" {
     http_endpoint = "enabled"
     http_tokens   = "required"
   }
+  tags = {
+    yor_trace = "de8bdfb5-d81b-438d-923c-6a452d367a9e"
+  }
 }
 
 resource "aws_autoscaling_group" "bar" {

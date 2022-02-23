@@ -1,11 +1,14 @@
 resource "random_id" "user" {
-  prefix = "testuser-"
+  prefix      = "testuser-"
   byte_length = 4
 }
 
 resource "aws_iam_user" "user" {
   name = random_id.user.hex
   path = "/"
+  tags = {
+    yor_trace = "c36c7b8b-faa0-4851-93f8-784583f8a126"
+  }
 }
 
 resource "aws_iam_user_ssh_key" "key1" {

@@ -1,17 +1,17 @@
 data "aws_ami" "ubuntu" {
-    most_recent = true
+  most_recent = true
 
-    filter {
-        name   = "name"
-        values = ["ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"]
-    }
+  filter {
+    name   = "name"
+    values = ["ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"]
+  }
 
-    filter {
-        name   = "virtualization-type"
-        values = ["hvm"]
-    }
+  filter {
+    name   = "virtualization-type"
+    values = ["hvm"]
+  }
 
-    owners = ["099720109477"] # Canonical
+  owners = ["099720109477"] # Canonical
 }
 
 
@@ -24,6 +24,9 @@ resource "aws_launch_template" "foobar" {
   name_prefix   = "foobar"
   image_id      = data.aws_ami.ubuntu.id
   instance_type = "t3.medium"
+  tags = {
+    yor_trace = "41dc260e-1d7a-43a4-9d8c-0f8ef88ef4c0"
+  }
 }
 
 resource "aws_autoscaling_group" "bar" {
@@ -37,8 +40,8 @@ resource "aws_autoscaling_group" "bar" {
     version = "$Latest"
   }
   tag {
-    key = "App"
-    value = "Testing"
+    key                 = "App"
+    value               = "Testing"
     propagate_at_launch = true
   }
 }

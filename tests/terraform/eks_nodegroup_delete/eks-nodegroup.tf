@@ -11,8 +11,9 @@ resource "aws_eks_node_group" "deleted_example" {
   }
 
   tags = {
-    "Name" = "deleted-example"
-    "ClusterName" =  aws_eks_cluster.example.name
+    "Name"        = "deleted-example"
+    "ClusterName" = aws_eks_cluster.example.name
+    yor_trace     = "a97d68da-bc93-49af-8c0e-6d3f7cdc171d"
   }
 
   # Ensure that IAM Role permissions are created before and deleted after EKS Node Group handling.
@@ -37,8 +38,9 @@ resource "aws_eks_node_group" "not_deleted_example" {
   }
 
   tags = {
-    "Name" = "not-deleted-example"
-    "ClusterName" =  aws_eks_cluster.example.name
+    "Name"        = "not-deleted-example"
+    "ClusterName" = aws_eks_cluster.example.name
+    yor_trace     = "01ca4142-7fc8-4f9d-82b0-f87ec997629f"
   }
 
   # Ensure that IAM Role permissions are created before and deleted after EKS Node Group handling.
@@ -63,6 +65,9 @@ resource "aws_iam_role" "node_group_example" {
     }]
     Version = "2012-10-17"
   })
+  tags = {
+    yor_trace = "95e8d1a5-f149-4b67-990a-08c14dcd2545"
+  }
 }
 
 resource "aws_iam_role_policy_attachment" "example-AmazonEKSWorkerNodePolicy" {

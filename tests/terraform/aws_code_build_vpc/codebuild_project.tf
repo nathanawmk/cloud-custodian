@@ -20,6 +20,9 @@ resource "aws_iam_role" "example" {
   ]
 }
 EOF
+  tags = {
+    yor_trace = "d9c92380-70a2-4e8d-b128-c91b6600d154"
+  }
 }
 
 resource "aws_iam_role_policy" "example" {
@@ -146,5 +149,6 @@ resource "aws_codebuild_project" "example" {
 
   tags = {
     Environment = "Test"
+    yor_trace   = "6798e809-1e4c-450e-ae99-8168f1cd8a4e"
   }
 }

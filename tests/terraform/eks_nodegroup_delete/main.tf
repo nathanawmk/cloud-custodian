@@ -12,6 +12,9 @@ resource "aws_eks_cluster" "example" {
     aws_iam_role_policy_attachment.example-AmazonEKSClusterPolicy,
     aws_iam_role_policy_attachment.example-AmazonEKSVPCResourceController,
   ]
+  tags = {
+    yor_trace = "1cc49439-444f-4ede-8c49-2e133e225b50"
+  }
 }
 
 resource "aws_iam_role" "cluster_example" {
@@ -31,6 +34,9 @@ resource "aws_iam_role" "cluster_example" {
   ]
 }
 POLICY
+  tags = {
+    yor_trace = "f70cf97b-2c2d-4b8e-9548-5e2a01bb0fd3"
+  }
 }
 
 resource "aws_iam_role_policy_attachment" "example-AmazonEKSClusterPolicy" {

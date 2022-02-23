@@ -18,13 +18,17 @@ resource "aws_iam_role" "test_role" {
 EOF
 
   tags = {
-    tag-key = "tag-value"
+    tag-key   = "tag-value"
+    yor_trace = "e5a4ebef-5d26-4812-9b99-cc601ffd082d"
   }
 }
 
 resource "aws_iam_instance_profile" "test_profile" {
   name = "test_profile"
   role = aws_iam_role.test_role.name
+  tags = {
+    yor_trace = "1b2f0529-014f-47f9-ad39-296397ee4d3c"
+  }
 }
 
 
@@ -69,6 +73,9 @@ resource "aws_iam_policy" "policy" {
   ]
 }
 EOF
+  tags = {
+    yor_trace = "2f6d3b3a-373e-4645-89c2-9993d0bf36f6"
+  }
 }
 
 resource "aws_iam_role_policy_attachment" "test-attach" {
