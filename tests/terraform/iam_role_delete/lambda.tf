@@ -16,4 +16,7 @@ resource "aws_lambda_function" "test_lambda" {
       foo = "bar"
     }
   }
+  tags = {
+    yor_trace = "60a4b65b-418e-4ed6-b8e8-537c1c0b399f"
+  }
 }

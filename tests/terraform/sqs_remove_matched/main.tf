@@ -7,6 +7,9 @@ provider "aws" {
 
 resource "aws_sqs_queue" "test_sqs" {
   name = uuid()
+  tags = {
+    yor_trace = "0fcb843b-67c6-47d1-ba29-a65cd4efca13"
+  }
 }
 
 resource "aws_sqs_queue_policy" "test_sqs_policy" {
